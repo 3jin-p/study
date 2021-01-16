@@ -5,7 +5,7 @@
 
 **INDEX**  
 1.JAVA  
-- [Hibernate Validatior](https://github.com/3jin-p/study/tree/master/java/validation)
+- [Hibernate Validator](https://github.com/3jin-p/study/tree/master/java/validation)
 
 2.Infra
 
