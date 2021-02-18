@@ -6,7 +6,7 @@
 객체지향 설계 5원칙 (SOLID) 을 본인 나름대로 해석한 내용입니다.
 
 S	SRP  
-- **단일 책임 원칙 (Single responsibility principle)**
+- **단일 책임 원칙 (Single responsibility principle)**  
   한 클래스는 하나의 책임만 가져야 한다.
 
 하나의 클래스가 하나 이상의 책임을 맡게됬을때,  
@@ -14,14 +14,14 @@ S	SRP
 변경에 취약한 구조의 설계가 된다.
 
 -O	OCP  
-- **개방-폐쇄 원칙 (Open/closed principle)**
+- **개방-폐쇄 원칙 (Open/closed principle)**  
 소프트웨어 요소는 확장에는 열려 있으나 변경에는 닫혀 있어야 한다.
 
 기존의 소스를 변경없이,  기능을 확장할 수 있는 구조로 설계를 하여야한다.  
 대표적으로 Interface 를 예시로 들 수 있다.
 
 L	LSP  
-- **리스코프 치환 원칙 (Liskov substitution principle)**
+- **리스코프 치환 원칙 (Liskov substitution principle)**  
 프로그램의 객체는 프로그램의 정확성을 깨뜨리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.
 
 부모객체 대신 그 자리에 자식객체로 치환해도, 기능은 정상적으로 동작하여야한다.  
@@ -29,7 +29,7 @@ L	LSP
 제대로 설계한 상속관계가 아니다.
 
 I	ISP  
-- **인터페이스 분리 원칙 (Interface segregation principle)**
+- **인터페이스 분리 원칙 (Interface segregation principle)**  
 특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다.  
 
 개인적으로 이해하기엔 단일책임의 원칙을 인터페이스에 적용한 원칙이지 않을까.  
@@ -38,7 +38,7 @@ I	ISP
 결국 인터페이스를 사용함으로서 얻는 확장성이 떨어지게 된다.
 
 D	DIP  
-- **의존관계 역전 원칙 (Dependency inversion principle)**  
+- **의존관계 역전 원칙 (Dependency inversion principle)**    
 프로그래머는 추상화에 의존해야지, 구체화에 의존하면 안된다.    
 
 의존관계는 변경이 적은 쪽으로 의존해야한다.  
