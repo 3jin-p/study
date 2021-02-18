@@ -1,3 +1,5 @@
+JAVA Validation
+--
 Bean Validation 2.0 명세를 따르는 객체의 유효성 검사 
 
 Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalidation.org/2.0-jsr380/)
@@ -191,4 +193,3 @@ Validation Library가 제공하는 커스텀 어노테이션, 그룹핑 등을 �
 
 다만, 동일한 객체를 여러 레이어에서 다수의 검증을 거치지 않도록 유의하며 사용할 필요가 있을 것 같다. 
 
-@author sj.park
