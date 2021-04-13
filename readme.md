@@ -16,7 +16,8 @@
 - [GKE 노드 Scale-up](https://github.com/3jin-p/study/tree/master/infra/gcp/gke/scale-up)
 
 3.Design Patterns
-- [Strategy Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/strategy_pattern)
+- [Strategy Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/strategy)
+- [Singleton Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/singleton)
 
 4.ETC
 - [SOLID 객체지향 5원칙](https://github.com/3jin-p/study/tree/master/oop/solid)
