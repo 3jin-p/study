@@ -15,9 +15,10 @@
 - [Kubernetes 무중단 배포](https://github.com/3jin-p/study/tree/master/infra/k8s/deploy)
 - [GKE 노드 Scale-up](https://github.com/3jin-p/study/tree/master/infra/gcp/gke/scale-up)
 
-3.Design Patterns
+3.Design Patterns [전체](https://github.com/3jin-p/DesignPatterns)
 - [Strategy Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/strategy)
 - [Singleton Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/singleton)
+- [State Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/state)
 
 4.ETC
 - [SOLID 객체지향 5원칙](https://github.com/3jin-p/study/tree/master/oop/solid)
