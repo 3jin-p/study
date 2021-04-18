@@ -19,6 +19,7 @@
 - [Strategy Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/strategy)
 - [Singleton Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/singleton)
 - [State Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/state)
+- [Command Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/command)
 
 4.ETC
 - [SOLID 객체지향 5원칙](https://github.com/3jin-p/study/tree/master/oop/solid)
