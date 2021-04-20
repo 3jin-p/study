@@ -19,7 +19,6 @@ Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalid
 ```
 
 2. Validation API Reference Implementation
-3. 
 > HibernateValidator 는 기본적인 명세를 따르는 javax.validation 에서 제공하는 기능 외에 더 많은 검증로직이 구현되어 있다.
 > validation api를 참조한 구현체, ORM Hibernate 와는 연관이 없다.
 
@@ -37,7 +36,6 @@ Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalid
 ```
 
 3. Spring Boot Validation Starter 
-
 > Spring boot web 모듈은 Hibernate Validator를 포함하고 있다.
 
 ```jsx
@@ -48,8 +46,6 @@ Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalid
 ```
 
 ### 1.기본적인 javax.validation 어노테이션
-
- 
 
 - **@NotNull** – Null 이 아님을 검증
 - **@AssertTrue** – True 값을 지님을 검증
@@ -67,7 +63,7 @@ Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalid
 ### 2. 이외 HibernateValidator 에서 추가로 구현되어있는 어노테이션 참고자료
 [https://www.baeldung.com/hibernate-validator-constraints](https://www.baeldung.com/hibernate-validator-constraints)
 
-> 각 어노테이션은 필드단위 외에도 Collection의 엘리먼트도 검증,  @ScriptAssert를 이용한 클래스단위 검증이 가능하다
+> 각 어노테이션은 필드단위 외에도 Collection의 엘리먼트도 검증, @ScriptAssert를 이용한 클래스단위 검증이 가능하다
 ---
 
 # 사용
@@ -80,9 +76,9 @@ public String testValidating(@Valid @RequestBody ValidationObject validationObje
         ...
 }
 ```
-@Valid 가 붙은 프로퍼티들을 검증한다. BindingResult로 핸들링이 가능하다.
-BindingResult 에 담지 않는다면 MethodConstraintViolationException 를 던지므로 
-@RestControllerAdvice 에서 ExceptionHandler 를 구현하여 처리하여도 된다.
+@Valid 가 붙은 프로퍼티들을 검증한다. BindingResult로 핸들링이 가능하다.  
+BindingResult 에 담지 않는다면 MethodConstraintViolationException 를 던지므로   
+@RestControllerAdvice 에서 ExceptionHandler 를 구현하여 처리하여도 된다.  
 
 ### 2. Controller가 아닌 레이어에서의 검증
 
@@ -95,9 +91,9 @@ public class ValidationService{
     }
 }
 ```
-Controller Layer 가 아니라면 클래스에 @Validated 어노테이션을 붙여주어야한다. 
-아마 어플리케이션 곳곳이 분포되어 있고 중복적으로 체크하는 검증 로직을 도메인 레이어로 통합시키고자 하는 Bean Validation 의 명세에 
-어긋나므로 Layer 간 중복 검증을 지양할 시간을 주는것이 아닐까 생각된다.
+Controller Layer 가 아니라면 클래스에 @Validated 어노테이션을 붙여주어야한다.   
+아마 어플리케이션 곳곳이 분포되어 있고 중복적으로 체크하는 검증 로직을 도메인 레이어로 통합시키고자 하는 Bean Validation 의 명세에 어긋나므로  
+Layer 간 중복 검증을 지양할 시간을 주는것이 아닐까 생각된다.  
 
 ### 3. Collection Element 의 검증
 
