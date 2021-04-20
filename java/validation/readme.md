@@ -1,14 +1,12 @@
 JAVA Validation
 --
 Bean Validation 2.0 명세를 따르는 객체의 유효성 검사 
-
 Bean Validation 2.0 : [https://beanvalidation.org/2.0-jsr380/](https://beanvalidation.org/2.0-jsr380/)
 
-여러 레이어에서 필요한 데이터 검증로직을 하나의 도메인 모델로 묶어 처리하여
+여러 레이어에서 필요한 데이터 검증로직을 하나의 도메인 모델로 묶어 처리하여 오류 발생빈도와 성능향상을 도모함. 
+주로 DTO 객체에 적용하여 사용한다.
 
-오류 발생빈도와 성능향상을 도모함. Java에서는 도메인 모델로 Annotation을 사용
-
-Dependencies 
+**Dependencies**
 
 1. Validation API 
 
@@ -20,10 +18,9 @@ Dependencies
 </dependency>
 ```
 
-2. . Validation API Reference Implementation
-
+2. Validation API Reference Implementation
+3. 
 > HibernateValidator 는 기본적인 명세를 따르는 javax.validation 에서 제공하는 기능 외에 더 많은 검증로직이 구현되어 있다.
-
 > validation api를 참조한 구현체, ORM Hibernate 와는 연관이 없다.
 
 ```jsx
@@ -44,70 +41,50 @@ Dependencies
 > Spring boot web 모듈은 Hibernate Validator를 포함하고 있다.
 
 ```jsx
-   <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
+ <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
 ```
 
 ### 1.기본적인 javax.validation 어노테이션
 
  
 
-- **@NotNull** – validates that the annotated property value is not
+- **@NotNull** – Null 이 아님을 검증
+- **@AssertTrue** – True 값을 지님을 검증
+- **@Size** – property 의 길이를 검증 *String*, *Collection*, *Map*, *Array* 프로퍼티에만 적용가능
+- **@Min** – 해당 값보다 적을수 없음을 검증
+- **@Max** – 해당 값보다 클 수 없음을 검증
+- ***@Email*** – 이메일 형식을 갖췄는지 검증
+- ***@NotEmpty*** – Null 이 아님과 비어있는지 여부를 검증 *String*, *Collection*, *Map* *Arrav* 에 적용 가능 
+- ***@NotBlank*** – Null 이 아님과 공백이 아님을 검증
+- ***@Positive*** and ***@PositiveOrZero*** – 양수임을 검증 그리고 양수 와 0 임을 검증 숫자에만 적용가능
+- ***@Negative*** and ***@NegativeOrZero*** – 음수임을 검증 그리고 음수 와 0 임을 검증 숫자엠나 적용가능
+- ***@Past*** and ***@PastOrPresent* – 시간이 특정시간 이전임을 검증, 특정 시간 이전과 현재를 검증 Java8 이후 부터 추가된 날짜 객체들에 적용가능
+- ***@Future** and **@FutureOrPresent*** – 시간이 특정시간 이후임을 검증, 특정 시간 이후와 현재를 검증
 
-    null
-
-- **@AssertTrue** – validates that the annotated property value is *true*
-- **@Size** – validates that the annotated property value has a size between the attributes  and ; can be applied to *String*, *Collection*, *Map*, and array properties
-- **@Min** –Validates that the annotated property has a value no smaller than the attribute
-
-    v
-
-    value
-
-- **@Max** – validates that the annotated property has a value no larger than the attribute
-
-    value
-
-- ***@Email*** – validates that the annotated property is a valid email address
-- ***@NotEmpty*** – validates that the property is not null or empty; can be applied to *String*, *Collection*, *Map* or *Array* values
-- ***@NotBlank*** – can be applied only to text values and validated that the property is not null or whitespace
-- ***@Positive*** and ***@PositiveOrZero*** – apply to numeric values and validate that they are strictly positive, or positive including 0
-- ***@Negative*** and ***@NegativeOrZero*** – apply to numeric values and validate that they are strictly negative, or negative including 0
-- ***@Past*** and ***@PastOrPresent*** – validate that a date value is in the past or the past including the present; can be applied to date types including those added in Java 8
-- ***@Future** and **@FutureOrPresent*** – validates that a date value is in the future, or in the future including the present
-
-### 2.  이외 HibernateValidator 에서 추가로 구현되어있는 어노테이션
-
+### 2. 이외 HibernateValidator 에서 추가로 구현되어있는 어노테이션 참고자료
 [https://www.baeldung.com/hibernate-validator-constraints](https://www.baeldung.com/hibernate-validator-constraints)
 
 > 각 어노테이션은 필드단위 외에도 Collection의 엘리먼트도 검증,  @ScriptAssert를 이용한 클래스단위 검증이 가능하다
-
 ---
 
 # 사용
-
-### 1. Controller 로 들어오는 객체의 검증
-
+### 1. Controller로 들어오는 객체의 검증
 ```java
 
 @RequestMapping(value = "/test/valid", method = RequestMethod.POST)
-public String testValidating(@Valid @RequestBody  ValidationObject validationObject,
-												 BindingResults bindingResults) throws Exception {  
-		
-		if (bindingResult.hasErrors()) { ... }
+public String testValidating(@Valid @RequestBody ValidationObject validationObject, BindingResults bindingResults) throws Exception {  
+	if (bindingResult.hasErrors()) { ... }
         ...
 }
 ```
+@Valid 가 붙은 프로퍼티들을 검증한다. BindingResult로 핸들링이 가능하다.
+BindingResult 에 담지 않는다면 MethodConstraintViolationException 를 던지므로 
+@RestControllerAdvice 에서 ExceptionHandler 를 구현하여 처리하여도 된다.
 
-검증결과가  BindingResult 객체에 담기게 되며, 
-
-검증을 통과하지 못했을 시 해당 객체의 Errors 컬렉션에 검증 지정한 검증 메시지들이 담기게 된다.
-
-> 메시지는 다국어 처리가 가능하며,  메세지 키는 Default로 ‘어노테이션명.모델명.필드명’ 이다
-
-### 2. Controller 가 아닌 레이어에서의 검증
+### 2. Controller가 아닌 레이어에서의 검증
 
 ```java
 @Validated // <<<<< Required
@@ -118,8 +95,9 @@ public class ValidationService{
     }
 }
 ```
-
-> Controller Layer 가 아닌 곳에서의 검증은 @Validated 어노테이션이 필요한데, 중복된 검증로직의 수행을 지양하도록 생각해볼 시간을 주는게 아닐지..
+Controller Layer 가 아니라면 클래스에 @Validated 어노테이션을 붙여주어야한다. 
+아마 어플리케이션 곳곳이 분포되어 있고 중복적으로 체크하는 검증 로직을 도메인 레이어로 통합시키고자 하는 Bean Validation 의 명세에 
+어긋나므로 Layer 간 중복 검증을 지양할 시간을 주는것이 아닐까 생각된다.
 
 ### 3. Collection Element 의 검증
 
@@ -133,53 +111,41 @@ public class ValidationObject {
 ### 4. Custom Annotation
 
 ```java
-@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
+@Constraint(validatedBy = NotIncludeStrValidator.class)
+@Target(FIELD)
 @Retention(RUNTIME)
-@Constraint(validatedBy = RequireMaskValidator.class)
-@Documented
-public @interface RequireMask{
-    String message() default "마스크 안끼면 출입불가";
+public @interface NotIncludeStr {
+    String message() default "contains constraint str";
+    
+    String constraint() default "";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
-
-    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
-    @Retention(RUNTIME)
-    @Documented
-    @interface List{
-        RequireMask[] value();
-    }
 }
 
-public class RequireMaskValidator
- implements ConstraintValidator<RequireMask, Collection<String> {
-// implements ConstraintValidator Interface
+public class NotIncludeStrValidator implements ConstraintValidator<NotIncludeStr, String> {
+    
+    private String constraint;
 
-    @Override // 검증 로직의 구현 
-    public boolean isValid(Collection collection, ConstraintValidatorContext context) {
-        if (collection.contains("Mask") {
-            return true;
+    public void init(NotIncludeStr annotation) { this.constraint = annotation.constraint(); }
+    
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null) {
+            return false;
         }
-        return false;
+        return !value.contains(constraint);
     }
 }
 
-public class Person{
-	@RequireMask 
-	Collection<String> belongings;
+public class Person {
+   @NotIncludeStr(constraint = "철수") // 아들아.. 손주 이름은 철수만큼은 안된다.
+   private String name;
 }
 ```
 
-### 5. 검증실패 Handling
-
-검증의 실패는 ConstraintViolationException 을 던지기 때문에 
-
-ControllerAdvice 에서 전역으로 ExceptionHandling 이 가능하다. 
-
 ---
-
- 
 
 이외에도 Marker Interface를 이용한 Grouping 등의 기능이 가능하다.
 
@@ -187,9 +153,5 @@ ControllerAdvice 에서 전역으로 ExceptionHandling 이 가능하다.
 
 Validation Library가 제공하는 커스텀 어노테이션, 그룹핑 등을 적극 활용하면 
 
-별도의 반복되는 검증로직 작성없이 간단하게 유효성 검사를 진행하고 
-
-손쉽게 프론트단에 메시지를 전달할 수 있다.
-
-다만, 동일한 객체를 여러 레이어에서 다수의 검증을 거치지 않도록 유의하며 사용할 필요가 있을 것 같다. 
+별도의 반복되는 검증로직 작성없이 간단하게 클라이언트단에서 들어오는 요청의 유효성 검사를 진행할 수 있다.
 
