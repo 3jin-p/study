@@ -83,8 +83,8 @@ data:
     <source>
     @type tail
     format none
-    path /app/log/docswave-app.log
-    pos_file /var/log/docswave-app.log.pos
+    path {tail 할 log path}
+    pos_file {pos file path}
     tag docswave.applog
     </source>
     <match docswave.**>
@@ -97,8 +97,8 @@ data:
      reload_on_failure true
      flush_interval 1s
      <endpoint>
-       url https://search-testpublic-6ka5nqs7jgpmuiyd5kbbefyd6y.ap-northeast-2.es.amazonaws.com
-       region ap-northeast-2
+       url {endpoint}
+       region {region}
        access_key_id "#{ENV['AWS_ACCESS_KEY']}"
        secret_access_key "#{ENV['AWS_ACCESS_SECRET']}"
      </endpoint>
@@ -178,7 +178,7 @@ spec:
                 - amd64
                 - arm64
       containers:
-      - image: 894538594166.dkr.ecr.ap-northeast-2.amazonaws.com/test-repo
+      - image: {app image(hub, ecr etc..)}
         imagePullPolicy: Always
         name: test-repo
         resources: {}
@@ -205,7 +205,7 @@ spec:
             secretKeyRef:
               key: AWS_ACCOUNT
               name: aws-account-secret
-        image: 894538594166.dkr.ecr.ap-northeast-2.amazonaws.com/fluentd
+        image: {Fluentd image path}
         imagePullPolicy: Always
         name: fluentd-sidecar
         resources: {}
