@@ -22,6 +22,7 @@
 - [Command Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/command)
 - [Observer Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/observer)
 - [Decorator Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/decorator)
+- [Template Method Pattern](https://github.com/3jin-p/DesignPatterns/tree/master/src/template)
 
 4.ETC
 - [SOLID 객체지향 5원칙](https://github.com/3jin-p/study/tree/master/oop/solid)
