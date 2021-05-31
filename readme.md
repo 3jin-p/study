@@ -27,6 +27,7 @@
 4.Kotlin
 - Kotlin in Action
   - [Chapter3 Function](https://github.com/3jin-p/KotilinPractice/tree/master/src/main/kotlin/com/jin/wod/practice/kotlin_in_action/chapter_3)
-
+  - [Chapter4 Function](https://github.com/3jin-p/KotilinPractice/tree/master/src/main/kotlin/com/jin/wod/practice/kotlin_in_action/chapter_4)
+  
 5.ETC
 - [SOLID 객체지향 5원칙](https://github.com/3jin-p/study/tree/master/oop/solid)
