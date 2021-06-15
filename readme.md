@@ -34,3 +34,7 @@
 5.ETC
 - [SOLID 객체지향 5원칙](/oop/solid)
 - [GRASP](/oop/grasp)
+
+6.읽은 책 정리 - 예전에 읽었던 책도 모두 정리하는것을 목표로..
+- 조영호님의 OBJECT
+  - [Chapter 6](/oop/object/chapter6)
