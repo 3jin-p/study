@@ -38,3 +38,4 @@
 - 조영호님의 OBJECT
   - [Chapter 6 메시지와 인터페이스](/oop/object/chapter6)
   - [Chapter 8 의존성 관리하기](/oop/object/chapter8)
+  - [Chapter 9 유용한 설계](/oop/object/chapter9)
