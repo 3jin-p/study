@@ -39,3 +39,4 @@
   - [Chapter 6 메시지와 인터페이스](/oop/object/chapter6)
   - [Chapter 8 의존성 관리하기](/oop/object/chapter8)
   - [Chapter 9 유용한 설계](/oop/object/chapter9)
+  - [Chapter 10 상속과 코드 재사용](/oop/object/chapter10)
