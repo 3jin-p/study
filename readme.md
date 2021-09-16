@@ -40,3 +40,7 @@
   - [Chapter 8 의존성 관리하기](/oop/object/chapter8)
   - [Chapter 9 유용한 설계](/oop/object/chapter9)
   - [Chapter 10 상속과 코드 재사용](/oop/object/chapter10)
+
+- DOMAIN DRIVEN DESIGN
+  - [Chapter 5 소프트웨어에서 표현되는 모델](/ddd/chapter5)
+  - [Chapter 6 도메인의 생명주기](/ddd/chapter6)
