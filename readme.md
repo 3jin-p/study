@@ -32,7 +32,8 @@
 ### ETC
 - [SOLID 객체지향 5원칙](/oop/solid)
 - [GRASP](/oop/grasp)
-- [Hibernate Validator](https://github.com/3jin-p/study/tree/master/java/validation)
+- [Hibernate Validator](java/validation)
+- [개발 인생을 편안하게 만드는 정규식 Regular Expressions](/etc/regex)
 
 ### BOOKS - 예전에 읽었던 책도 모두 정리하는것을 목표로..
 - 조영호님의 OBJECT
