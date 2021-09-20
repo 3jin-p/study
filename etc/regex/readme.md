@@ -15,31 +15,31 @@ abc : 모든 문자열 abc (4)
 ```
 
 
-*1. ^abc*
-   - *abc*defasd  
+**1. ^abc**
+   - **abc**defasd  
    - asfasfabc  
-   - *abc*abcabc
+   - **abc**abcabc
 
-*2. abc$*
-- asfas*abc*
+**2. abc$**
+- asfas**abc**
 - abcsabcwf
-- abcabc*abc*
+- abcabc**abc**
 
-*3. ^abc$*
-- *abc*
+**3. ^abc$**
+- **abc**
 - abcsafqbc  
 - abcabcabc
 
-*4. abc*
-- *abc*is*abc*
-- asfaf*abc*afasf
-- *abcabcabc*
+**4. abc**
+- **abc**is**abc**
+- asfaf**abc**afasf
+- **abcabcabc**
 
 
 #### Quantifiers
 
 ``` regexp
-abc* ab와 0개 이상의 c를 포함한 문자열 (1)
+abc** ab와 0개 이상의 c를 포함한 문자열 (1)
 abc+ ab와 1개 이상의 c를 포함한 문자열 (2)
 abc? ab 와 0개 혹은 1개의 c릂 포함한 문자열 (3)
 abc{3} ab 와 3개의 c를 포함한 문자열 (4)
@@ -47,35 +47,35 @@ abc{3,5} ab와 3~5개 의 c를 포함한 문자열 (5)
 abc{3,} ab와 3개 이상의 c를 포함한 문자열 (6)
 ```
 
-*1. abc**
-- *abc* is alphabet
-- *abc* is *ab*s
-- *ababc*aaa*ab*aaa*abcccc*
+**1. abc****
+- **abc** is alphabet
+- **abc** is **ab**s
+- **ababc**aaa**ab**aaa**abcccc**
 
-*2. abc+*
-- *abc* is alphabet
-- *abc* is abs
-- ab*abc*aaaabaaa*abcccc*
+**2. abc+**
+- **abc** is alphabet
+- **abc** is abs
+- ab**abc**aaaabaaa**abcccc**
 
-*3. abc?*
--  *abc* is alphabet
-- *abc* is *ab*s
-- ab*abc*aaa*ab*aaa*abc*ccc
+**3. abc?**
+-  **abc** is alphabet
+- **abc** is **ab**s
+- ab**abc**aaa**ab**aaa**abc**ccc
 
-*4. abc{3}*
+**4. abc{3}**
 -  abc is alphabet
 - abc is abs
-- ababcaaaabaaa*abccc*c
+- ababcaaaabaaa**abccc**c
 
-*5. abc{3,5}*
+**5. abc{3,5}**
 - abc is alphabet
 - abc is abs
-- *abccccc*abcaaabaaa*abcccc*
+- **abccccc**abcaaabaaa**abcccc**
 
-*6. abc{3,}*
+**6. abc{3,}**
 - aabcc
-- a*abccc*
-- a*abcccccccccccccccc*
+- a**abccc**
+- a**abcccccccccccccccc**
 
 #### Character Classes
 ``` regexp
@@ -88,19 +88,19 @@ abc{3,} ab와 3개 이상의 c를 포함한 문자열 (6)
 . : 줄바꿈 문자를 제외한 모든 문자 하나와 매칭합니다. 
 ```
 
-*1. a\wc*
-- *abc* asews abw *atc* *axc*qwe
+**1. a\wc**
+- **abc** asews abw **atc** **axc**qwe
 
-*2. a\dc*
-- *a2c*12abc4 *a2c*ww
+**2. a\dc**
+- **a2c**12abc4 **a2c**ww
 
-*3. ^a\dc*
+**3. ^a\dc**
 
-- *a2c*12abc4 a2cww
+- **a2c**12abc4 a2cww
 
-*4. a..*
-- *asf*wfqf
-- *asd*s*add*d*adw*da
+**4. a..**
+- **asf**wfqf
+- **asd**s**add**d**adw**da
 
 
 ### Bracket Expression
@@ -110,21 +110,21 @@ abc{3,} ab와 3개 이상의 c를 포함한 문자열 (6)
 [a-c] : 범위지정 연산자 - 를 사용하면  a~c 까지의 어느 문자와도 매칭합니다. (3)
 ```
 
-*1.[abc]*
-- *abc*defghijklmnop *a*lph*ab*et *a*pple *b*e*a*r
+**1.[abc]**
+- **abc**defghijklmnop **a**lph**ab**et **a**pple **b**e**a**r
 
-*2.[^abc]*
-- a*sd*bca*sds*a
+**2.[^abc]**
+- a**sd**bca**sds**a
 
-*3.[a-c]*
-- *a*e*b*e*c*d
+**3.[a-c]**
+- **a**e**b**e**c**d
 
 ### Grouping And Capturing
 
 Capturing 은 문자열을 검색할 때 유용하게 사용됩니다.
 ``` regexp
-a(bc)* : () 는 캡쳐 그룹을 생성합니다. 예제는 a와 bc 가 0회 이상 반복된 문자열을 찾습니다.
-a(?:bc)* : (?:) 는 그룹을 생성하지만 캡쳐하지는 않습니다. () 와 동일한 문자열을 매칭하지만 조건절, Back Reference 등을 사용할 때, 캡쳐링 되지 않습니다.
+a(bc)** : () 는 캡쳐 그룹을 생성합니다. 예제는 a와 bc 가 0회 이상 반복된 문자열을 찾습니다.
+a(?:bc)** : (?:) 는 그룹을 생성하지만 캡쳐하지는 않습니다. () 와 동일한 문자열을 매칭하지만 조건절, Back Reference 등을 사용할 때, 캡쳐링 되지 않습니다.
 a(?<named>bc) : (?<named>) 는 캡쳐 그룹의 이름을 지정합니다. 예제는 named 라는 캡쳐 그룹을 생성했습니다.
 ```
 
@@ -149,15 +149,15 @@ Back Reference 는 캡쳐 그룹을 찾는 방법입니다.
 (?<named>[abc])\k<named> : \k<named> 는 해당 이름의 캡쳐 그룹과 매칭됩니다. (2)  
 ```
 
-*1. (abc)(bcd)\2\1*
-- *abcbcdbcdabc*
+**1. (abc)(bcd)\2\1**
+- **abcbcdbcdabc**
 - abcdefghijkabc
-- abab*abcbcdbcdabc*abab
+- abab**abcbcdbcdabc**abab
 
-*2. (?<named>abc)\k<named>*
+**2. (?<named>abc)\k<named>**
 - abababc
-- ee*abcabc*ee
-- abceeee*abcabc*eeabc
+- ee**abcabc**ee
+- abceeee**abcabc**eeabc
 
 ### Flags
 
@@ -182,5 +182,5 @@ i(insensitive): 대소문자 구분을 무시하고 매칭합니다.
 \\d{2}([0]\\d|[1][0-2])([0][1-9]|[1-2]\\d|[3][0-1])[1-4]\\d{6}
 
 - 특수문자 제한 (알파벳과 한글 숫자, 언더바 와 하이픈만 허용)
-^[a-zA-Z0-9_\\-ㄱ-ㅎㅏ-ㅣ가-힣]*$
+^[a-zA-Z0-9_\\-ㄱ-ㅎㅏ-ㅣ가-힣]**$
 ```
