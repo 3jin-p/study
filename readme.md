@@ -4,7 +4,7 @@
 
 ---
 ### JAVA
-
+- [Functional Interface 함수형 인터페이스](/java/functional_interface)
 ### Infra
 
 - [AWS Fargate?](https://github.com/3jin-p/study/tree/master/infra/aws/fargate)  
