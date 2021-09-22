@@ -5,8 +5,9 @@
 ---
 ### JAVA
 - [Functional Interface 함수형 인터페이스](/java/functional_interface)
+### DBMS
+- [Normalization 정규화](/dbms/nomarlization)
 ### Infra
-
 - [AWS Fargate?](https://github.com/3jin-p/study/tree/master/infra/aws/fargate)  
 - [AWS EKS+Fargate Configuration](https://github.com/3jin-p/study/tree/master/infra/aws/eks)  
 - [EKS서버 EFK Stack 로깅시스템 구축](https://github.com/3jin-p/study/tree/master/infra/aws/efkstack)
