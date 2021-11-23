@@ -50,4 +50,5 @@
 
 ### 사내 스터디 발표용
 - Clean Code
-  - [Chapter 4 주석](/clean_code)
+  - [Chapter 4 주석](/clean_code/chapter4)
+  - [Chapter 5 형식 맞추기](/clean_code/chapter5)
