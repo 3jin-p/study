@@ -46,3 +46,8 @@
 - DOMAIN DRIVEN DESIGN
   - [Chapter 5 소프트웨어에서 표현되는 모델](/ddd/chapter5)
   - [Chapter 6 도메인의 생명주기](/ddd/chapter6)
+  
+
+### 사내 스터디 발표용
+- Clean Code
+  - [Chapter 4 주석](/clean_code)
