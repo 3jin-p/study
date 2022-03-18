@@ -85,9 +85,9 @@ data:
     format none
     path {tail 할 log path}
     pos_file {pos file path}
-    tag docswave.applog
+    tag application.applog
     </source>
-    <match docswave.**>
+    <match application.**>
      @type "aws-elasticsearch-service"
      logstash_format true
      include_tag_key true
@@ -118,7 +118,7 @@ td-agent.conf 의 문법은 공식문서 ([https://docs.fluentd.org/configuratio
 
 ***설명***
 
-<source>/app/log/docswave-app.log 로그 파일을 tail 로 읽어
+<source>/app/log/application-app.log 로그 파일을 tail 로 읽어
 
 <match> 의 옵션에따라 endpoint 아래에 있는 aws-elasticsearch 로 수집한 로그를 flush 한다.
 
