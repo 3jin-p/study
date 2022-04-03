@@ -56,4 +56,4 @@
 
 
 
-https://dev-sj-repo.tistory.com/ 
+이제는 https://dev-sj-repo.tistory.com/ 에 작성합니다.
